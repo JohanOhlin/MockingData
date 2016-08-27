@@ -1,0 +1,34 @@
+{
+  "title": "Mocking Data Library",
+  "copyright": "Johan Ohlin",
+  "version": "0.1.1",
+  "packOptions": {
+    "licenseUrl": "https://github.com/JohanOhlin/MockingData/blob/master/LICENSE",
+    "projectUrl": "https://github.com/JohanOhlin/MockingData/"
+  },
+  "description": "Mocking Data Library for .NET and .NET Core",
+  "authors": [ "Johan Ohlin" ],
+  "frameworks": {
+    "netstandard1.4": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1",
+        "System.Collections": "4.0.11",
+        "System.Linq.Parallel": "4.0.1",
+        "System.Linq.Queryable": "4.0.1",
+        "System.Net.Http": "4.1.0",
+        "System.Runtime": "4.1.0",
+        "System.Runtime.Extensions": "4.1.0",
+        "System.Runtime.InteropServices": "4.1.0",
+        "System.Security.Cryptography.Algorithms": "4.2.0",
+        "System.Threading": "4.0.11",
+        "NETStandard.Library": "1.6.0",
+        "System.Collections.Immutable": "1.2.0"
+      }
+    },
+    "net45": {}
+  },
+  "dependencies": {
+    "NodaTime": "2.0.0-alpha20160729"
+  }
+}
