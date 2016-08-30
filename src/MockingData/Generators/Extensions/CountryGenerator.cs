@@ -69,11 +69,6 @@ namespace MockingData.Generators.Extensions
             }
         }
 
-        public GeneratorExtensionTypes GetExtensionType()
-        {
-            return GeneratorExtensionTypes.CountryExtension;
-        }
-
         public City RandomCity(State state)
         {
             return state.Cities.RandomFromList(_generator);
@@ -125,8 +120,17 @@ namespace MockingData.Generators.Extensions
                 SystemClock.Instance.InUtc().GetCurrentZonedDateTime() :
                 SystemClock.Instance.InZone(timeZone).GetCurrentZonedDateTime();
         }
+        #endregion
 
-
+        #region interface IExtensionGenerator
+        /// <summary>
+        /// Returns the type of this extension
+        /// </summary>
+        /// <returns></returns>
+        public GeneratorExtensionTypes GetExtensionType()
+        {
+            return GeneratorExtensionTypes.CountryExtension;
+        }
         #endregion
     }
 

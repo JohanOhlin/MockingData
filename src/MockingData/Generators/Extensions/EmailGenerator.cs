@@ -52,9 +52,15 @@ namespace MockingData.Generators.Extensions
         }
         #endregion
 
+        #region interface IExtensionGenerator
+        /// <summary>
+        /// Returns the type of this extension
+        /// </summary>
+        /// <returns></returns>
         public GeneratorExtensionTypes GetExtensionType()
         {
             return GeneratorExtensionTypes.EmailExtension;
         }
+        #endregion
     }
 }

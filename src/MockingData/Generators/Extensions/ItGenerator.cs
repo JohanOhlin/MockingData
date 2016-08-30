@@ -9,125 +9,195 @@ namespace MockingData.Generators.Extensions
     public class ItGenerator : IItGenerator
     {
         private readonly IRandomGenerator _generator;
-        private readonly IExtensionService _service;
-        public ItGenerator(IRandomGenerator generator, IExtensionService extensionService)
+        private readonly IExtensionService _extensionService;
+
+        public ItGenerator(IRandomGenerator generator, IExtensionService extensionService, 
+            List<string> ipv4Adr, bool onlyUniqueIpv4, 
+            List<string> ipv6Adr, bool onlyUniqueIpv6, 
+            List<string> macAdr, bool onlyUniqueMac, char macSeparator)
         {
             _generator = generator;
-            _service = extensionService;
+            _extensionService = extensionService;
+            _generatedIPv4Addresses = ipv4Adr;
+            _onlyUniqueIPv4Addresses = onlyUniqueIpv4;
+            _generatedIPv6Addresses = ipv6Adr;
+            _onlyUniqueIPv6Addresses = onlyUniqueIpv6;
+            _generatedMacAddresses = macAdr;
+            _onlyUniqueMacAddresses = onlyUniqueMac;
+            _macSeparator = macSeparator;
         }
 
-        #region IItGenerator
-        #region Random IP v4 Addresses
-        private List<string> _generatedIPv4Addresses;
-        public List<string> GeneratedIPv4Addresses
+        #region Random IP v6 Addresses
+        private readonly List<string> _generatedIPv4Addresses;
+        private readonly bool _onlyUniqueIPv4Addresses;
+
+        /// <summary>
+        /// Returns a list of all generated IPv4 addresses
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GeneratedIPv4Addresses()
         {
-            get { return _generatedIPv4Addresses ?? (_generatedIPv4Addresses = new List<string>()); }
-            set
-            {
-                _generatedIPv4Addresses = value;
-            }
+            return _generatedIPv4Addresses;
         }
-        public bool OnlyUniqueIPv4Addresses { get; set; } = true;
+
+        /// <summary>
+        /// Creates a random IPv4 address. If OnlyUniqueIPv4 is set to true then this address is guaranteed to
+        /// be unique.
+        /// </summary>
+        /// <returns></returns>
         public string RandomIPv4Address()
         {
             var suggestedIp = SuggestedIPv4Address();
-            if (OnlyUniqueIPv4Addresses)
+            if (_onlyUniqueIPv4Addresses)
             {
-                while (GeneratedIPv4Addresses.BinarySearch(suggestedIp) >= 0)
+                while (_generatedIPv4Addresses.BinarySearch(suggestedIp) >= 0)
                 {
                     suggestedIp = SuggestedIPv4Address();
                 }
             }
-            GeneratedIPv4Addresses.Add(suggestedIp);
+            _generatedIPv4Addresses.Add(suggestedIp);
             return suggestedIp;
         }
 
+        /// <summary>
+        /// Creates a suggested IPv4 address
+        /// </summary>
+        /// <returns></returns>
         private string SuggestedIPv4Address()
         {
-            return string.Format($"{_generator.Next(1, 254)}.{_generator.Next(0, 254)}.{_generator.Next(0, 254)}.{_generator.Next(1, 254)}");
+            return string.Format($"{_generator.Next(1, 254)}." +
+                                 $"{_generator.Next(0, 254)}." +
+                                 $"{_generator.Next(0, 254)}." +
+                                 $"{_generator.Next(1, 254)}");
         }
         #endregion
 
 
         #region Random IP v6 Addresses
-        private List<string> _generatedIPv6Addresses;
-        public List<string> GeneratedIPv6Addresses
+        private readonly List<string> _generatedIPv6Addresses;
+        private readonly bool _onlyUniqueIPv6Addresses = true;
+
+        /// <summary>
+        /// Returns a list of all generated IPv6 addresses
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GeneratedIPv6Addresses()
         {
-            get { return _generatedIPv6Addresses ?? (_generatedIPv6Addresses = new List<string>()); }
-            set
-            {
-                _generatedIPv6Addresses = value;
-            }
+            return _generatedIPv6Addresses;
         }
-        public bool OnlyUniqueIPv6Addresses { get; set; } = true;
+
+        /// <summary>
+        /// Returns a random IPv6 address. If OnlyUniqueIPv6 is set to true then this address is guaranteed to
+        /// be unique.
+        /// </summary>
+        /// <returns></returns>
         public string RandomIPv6Address()
         {
             var suggestedIp = SuggestedIPv6Address();
-            if (OnlyUniqueIPv6Addresses)
+            if (_onlyUniqueIPv6Addresses)
             {
-                while (GeneratedIPv6Addresses.BinarySearch(suggestedIp) >= 0)
+                while (_generatedIPv6Addresses.BinarySearch(suggestedIp) >= 0)
                 {
                     suggestedIp = SuggestedIPv6Address();
                 }
             }
-            GeneratedIPv6Addresses.Add(suggestedIp);
+            _generatedIPv6Addresses.Add(suggestedIp);
             return suggestedIp;
         }
+
+        /// <summary>
+        /// Returns a suggested new IPv6 address
+        /// </summary>
+        /// <returns></returns>
         private string SuggestedIPv6Address()
         {
-            byte[] bytes = new byte[16];
+            var bytes = new byte[16];
             new System.Random().NextBytes(bytes);
-            IPAddress ipv6Address = new IPAddress(bytes);
+            var ipv6Address = new IPAddress(bytes);
             return ipv6Address.ToString();
         }
         #endregion
 
-
         #region Random MAC Addresses
-        private List<string> _generatedMacAddresses;
-        public List<string> GeneratedMacAddresses
+        private readonly List<string> _generatedMacAddresses;
+        private readonly char _macSeparator;
+        private readonly bool _onlyUniqueMacAddresses;
+
+        /// <summary>
+        /// Returns a list of all generated MAC addresses
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GeneratedMacAddresses()
         {
-            get
-            {
-                if (_generatedMacAddresses == null)
-                {
-                    _generatedMacAddresses = new List<string>();
-                }
-                return _generatedMacAddresses;
-            }
-            set
-            {
-                _generatedMacAddresses = value;
-            }
+            return _generatedIPv6Addresses;
         }
-        public bool OnlyUniqueMacAddresses { get; set; } = true;
-        public string RandomMacAddress(char separator = ':')
+
+        /// <summary>
+        /// Returns a random MAC address. If OnlyUniqueMAC is set to true then this address is guaranteed to
+        /// be unique.
+        /// </summary>
+        /// <returns></returns>
+        public string RandomMacAddress()
+        {
+            var suggestedMac = SuggestedMacAddress();
+            if (_onlyUniqueMacAddresses)
+            {
+                while (_generatedMacAddresses.BinarySearch(suggestedMac) >= 0)
+                {
+                    suggestedMac = SuggestedMacAddress();
+                }
+            }
+            _generatedMacAddresses.Add(suggestedMac);
+            return suggestedMac;
+        }
+
+        /// <summary>
+        /// Returns a suggested new MAC address
+        /// </summary>
+        /// <returns></returns>
+        private string SuggestedMacAddress()
         {
             // Similar to 00:0a:95:9d:68:16
-            return $"{_generator.NextHexNumber(2)}{separator}{_generator.NextHexNumber(2)}{separator}{_generator.NextHexNumber(2)}{separator}{_generator.NextHexNumber(2)}{separator}{_generator.NextHexNumber(2)}{separator}{_generator.NextHexNumber(2)}";
+            return $"{_generator.NextHexNumber(2)}{_macSeparator}" +
+                   $"{_generator.NextHexNumber(2)}{_macSeparator}" +
+                   $"{_generator.NextHexNumber(2)}{_macSeparator}" +
+                   $"{_generator.NextHexNumber(2)}{_macSeparator}" +
+                   $"{_generator.NextHexNumber(2)}{_macSeparator}" +
+                   $"{_generator.NextHexNumber(2)}";
         }
         #endregion
 
-
         #region Random functions with non-unique data
+        /// <summary>
+        /// Returns a random GUID
+        /// </summary>
+        /// <returns></returns>
         public Guid RandomGuid()
         {
             return System.Guid.NewGuid();
         }
-
+        
+        /// <summary>
+        /// Returns a six number HEX code (without the leading # sometimes used)
+        /// </summary>
+        /// <returns></returns>
         public string RandomHexColorCode()
         {
             return _generator.NextHexNumber(6);
         }
+        #endregion
 
+        #region interface IExtensionGenerator
+        /// <summary>
+        /// Returns the type of this extension
+        /// </summary>
+        /// <returns></returns>
         public GeneratorExtensionTypes GetExtensionType()
         {
             return GeneratorExtensionTypes.ItExtension;
         }
-
-
         #endregion
-        #endregion
+
 
     }
 }

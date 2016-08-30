@@ -1,30 +1,31 @@
 ﻿using System;
 using MockingData.Generators.Extensions.Interfaces;
-using MockingData.Generators.Random.Interfaces;
 using MockingData.Model.Interfaces;
 
 namespace MockingData.Generators.Extensions
 {
     public class RobohashGenerator : IRobohashGenerator
     {
-        private IRandomGenerator _generator;
-        private IExtensionService _service;
-        private int Width { get; set; } = 300;
-        private int Height { get; set; } = 300;
-        public RobohashGenerator(IRandomGenerator generator, IExtensionService extensionService, int width, int height)
+        private int Width { get; set; }
+        private int Height { get; set; }
+        private Func<IPerson, string> CreateMethod { get; set; }
+        private string BaseUrl { get; set; }
+        public RobohashGenerator(int width, int height, Func<IPerson, string> createMethod, string baseUrl)
         {
-            _generator = generator;
-            _service = extensionService;
             Width = width;
             Height = height;
+            BaseUrl = baseUrl;
+            CreateMethod = createMethod;
         }
 
         #region IRobohashGenerator
-        private string Key { get; set; } = Guid.NewGuid().ToString();
-
-        private Uri CreateUri()
+        /// <summary>
+        /// Todo: Rewrite this function
+        /// </summary>
+        /// <returns></returns>
+        private Uri CreateUri(string key)
         {
-            var uri = $"https://robohash.org/{Key}";
+            var uri = $"{BaseUrl}/{key.ToLower()}";
             if (Width > 0 && Height > 0)
             {
                 uri += $"?size={Width}x{Height}";
@@ -32,14 +33,23 @@ namespace MockingData.Generators.Extensions
             return new Uri(uri);
         }
 
+        /// <summary>
+        /// Returns URI for a completely random robohash image
+        /// </summary>
+        /// <returns></returns>
         public Uri Generate()
         {
-            Key = Guid.NewGuid().ToString();
-            return CreateUri();
+            return CreateUri(Guid.NewGuid().ToString());
         }
 
+        /// <summary>
+        /// Returns URI for given text
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public Uri Generate(string text)
         {
+            string Key;
             if (!string.IsNullOrEmpty(text))
             {
                 Key = text;
@@ -48,22 +58,32 @@ namespace MockingData.Generators.Extensions
             {
                 Key = Guid.NewGuid().ToString();
             }
-            return CreateUri();
+            return CreateUri(Key);
         }
 
+        /// <summary>
+        /// Returns URI for given person
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         public Uri Generate(IPerson person)
         {
+            string Key;
             if (person != null)
             {
-                Key = $"{person.FirstName}{person.LastName}{person.City.Name}".ToLower();
+                Key = CreateMethod(person).ToLower();
             }
             else
             {
                 Key = Guid.NewGuid().ToString().ToLower();
             }
-            return CreateUri();
+            return CreateUri(Key);
         }
 
+        /// <summary>
+        /// Get type of extension
+        /// </summary>
+        /// <returns></returns>
         public GeneratorExtensionTypes GetExtensionType()
         {
             return GeneratorExtensionTypes.RobohashExtension;

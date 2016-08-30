@@ -7,12 +7,11 @@ using MockingData.Model.Interfaces;
 
 namespace MockingData.Generators.Extensions
 {
-    public class CountryInitator : ICountryInitiator
+    public class CountryInitator : ExtensionInitiatorBase, ICountryInitiator
     {
-        private readonly IRandomGenerator _generator;
         public CountryInitator(IRandomGenerator generator, IExtensionService extensionService)
+            : base(generator, extensionService)
         {
-            _generator = generator ?? new RandomGenerator();
         }
 
 
@@ -240,18 +239,28 @@ namespace MockingData.Generators.Extensions
         /// <returns></returns>
         public ICountryGenerator Create()
         {
-            return new CountryGenerator(_generator, Countries(), _countryDistribution, _customDistribution);
+            return new CountryGenerator(Generator, Countries(), _countryDistribution, _customDistribution);
         }
+        #endregion
 
+        #region Abstract class ExtensionInitiatorBase 
         /// <summary>
         /// Used by the ExtensionService class for automation. Use the normal Create method instead.
         /// </summary>
         /// <returns></returns>
-        public IExtensionGenerator CreateGenericGenerator()
+        public override IExtensionGenerator CreateGenericGenerator()
         {
             return Create();
         }
 
+        /// <summary>
+        /// Identifies this extension
+        /// </summary>
+        /// <returns></returns>
+        public override GeneratorExtensionTypes GetExtensionType()
+        {
+            return GeneratorExtensionTypes.CountryExtension;
+        }
         #endregion
     }
 

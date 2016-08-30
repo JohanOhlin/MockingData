@@ -7,9 +7,9 @@ using MockingData.Model.Interfaces;
 
 namespace MockingData.Generators.Extensions
 {
-    public class EmailInitiator : IEmailInitiator
+    public class EmailInitiator : ExtensionInitiatorBase, IEmailInitiator
     {
-        public EmailInitiator(IRandomGenerator generator, IExtensionService extensionService)
+        public EmailInitiator(IRandomGenerator generator, IExtensionService extensionService) : base (generator, extensionService)
         {
             _onlyUniqueEmails = true;
             _generatedEmails = new List<string>();
@@ -21,11 +21,6 @@ namespace MockingData.Generators.Extensions
         private bool _onlyUniqueEmails;
         private Func<IPerson, string> _namePattern;
         private IList<string> _domainNames;
-
-        public GeneratorExtensionTypes GetExtensionType()
-        {
-            return GeneratorExtensionTypes.EmailExtension;
-        }
 
         public IEmailInitiator WithPreExistingEmails(IList<string> existingEmails)
         {
@@ -60,10 +55,24 @@ namespace MockingData.Generators.Extensions
             return new EmailGenerator(_onlyUniqueEmails, _generatedEmails, _namePattern, _domainNames);
         }
 
-        public IExtensionGenerator CreateGenericGenerator()
+        #region Abstract class ExtensionInitiatorBase 
+        /// <summary>
+        /// Used by the ExtensionService class for automation. Use the normal Create method instead.
+        /// </summary>
+        /// <returns></returns>
+        public override IExtensionGenerator CreateGenericGenerator()
         {
             return Create();
         }
-    }
 
+        /// <summary>
+        /// Identifies this extension
+        /// </summary>
+        /// <returns></returns>
+        public override GeneratorExtensionTypes GetExtensionType()
+        {
+            return GeneratorExtensionTypes.EmailExtension;
+        }
+        #endregion
+    }
 }

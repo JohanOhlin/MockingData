@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using MockingData.Generators.Extensions.Interfaces;
 using MockingData.Generators.Random.Extensions;
 using MockingData.Generators.Random.Interfaces;
@@ -18,7 +19,6 @@ namespace MockingData.Generators.Extensions
             _generator = generator;
             _extensionService = extensionService;
         }
-
 
         #region IPersonGenerator
         public Gender RandomGender => (Gender)_generator.Next(1, 2);
@@ -60,7 +60,7 @@ namespace MockingData.Generators.Extensions
 
         public GeneratorExtensionTypes GetExtensionType()
         {
-            return GeneratorExtensionTypes.PersonExtension;
+            throw new NotImplementedException();
         }
         #endregion
     }
