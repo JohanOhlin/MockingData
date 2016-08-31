@@ -12,5 +12,6 @@ namespace MockingData.Model.Interfaces
         State State { get; }
         ICountry Country { get; }
         Uri RobohashImage { get; }
+        string Email { get; }
     }
 }
