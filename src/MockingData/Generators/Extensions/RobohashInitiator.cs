@@ -18,6 +18,14 @@ namespace MockingData.Generators.Extensions
         private string BaseUrl { get; set; } = "https://robohash.org";
         private Func<IPerson, string> CreateMethod { get; set; }
 
+        /// <summary>
+        /// The size to use for the images. 
+        /// 
+        /// Default is 300x300px.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public IRobohashInitiator WithSize(int width, int height)
         {
             Width = width;
@@ -25,12 +33,26 @@ namespace MockingData.Generators.Extensions
             return this;
         }
 
+        /// <summary>
+        /// How a person object should be transformed into the identifier in the URL
+        /// 
+        /// Default is "FirstnameLastnameCity"
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public IRobohashInitiator WithCreateMethod(Func<IPerson, string> method)
         {
             CreateMethod = method;
             return this;
         }
 
+        /// <summary>
+        /// The base url to use when generating the image links. 
+        /// 
+        /// Default value is https://robohash.org
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public IRobohashInitiator WithBaseUrl(string url)
         {
             BaseUrl = url;

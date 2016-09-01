@@ -22,6 +22,20 @@ namespace MockingData.Generators.Extensions
         }
         
         #region IEmailGenerator functions
+        /// <summary>
+        /// Returns a list of all generated emails
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GeneratedEmails()
+        {
+            return _generatedEmails;
+        }
+
+        /// <summary>
+        /// Generate a random email address for the person specified
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         public string RandomEmail(IPerson person)
         {
             // Check if person already has an assigned email address

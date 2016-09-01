@@ -7,6 +7,11 @@ namespace MockingData.Generators.Extensions.Interfaces
 {
     public interface ICountryGenerator : IExtensionGenerator
     {
+        IList<ICountry> CountryList();
+        CountryDistribution Distribution();
+        IDictionary<int, int> CustomDistribution();
+
+
         ICountry RandomCountry();
         IEnumerable<ICountry> RandomCountries();
         City RandomCity(State state);

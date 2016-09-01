@@ -1,10 +1,11 @@
-﻿using MockingData.Model.Interfaces;
+﻿using System.Collections.Generic;
+using MockingData.Model.Interfaces;
 
 namespace MockingData.Generators.Extensions.Interfaces
 {
     public interface IEmailGenerator : IExtensionGenerator
     {
-        //List<string> GeneratedEmails();
+        List<string> GeneratedEmails();
         string RandomEmail(IPerson person);
     }
 
