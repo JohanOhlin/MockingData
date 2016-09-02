@@ -23,6 +23,11 @@ namespace MockingData.Generators.Extensions
         #region IPersonGenerator
         public Gender RandomGender => (Gender)_generator.Next(1, 2);
 
+        /// <summary>
+        /// Generates a stream of generated person objects
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public IEnumerable<IPerson> RandomPersons()
         {
             while (true)
@@ -31,6 +36,11 @@ namespace MockingData.Generators.Extensions
             }
         }
 
+        /// <summary>
+        /// Generates a random title localized from the specified country and gender
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public string RandomTitle(ICountry country, Gender gender)
         {
             try
@@ -47,20 +57,34 @@ namespace MockingData.Generators.Extensions
             return "n/a";
         }
 
+        /// <summary>
+        /// Generates a random first name localized from the specified country and gender
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public string RandomFirstName(ICountry country, Gender gender)
         {
             return gender == Gender.Male ? country.FirstNamesMale.RandomFromList(_generator) :
                 country.FirstNamesFemale.RandomFromList(_generator);
         }
 
+        /// <summary>
+        /// Generates a random last name localized from the specified country
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public string RandomLastName(ICountry country)
         {
             return country.LastNames.RandomFromList(_generator);
         }
 
+        /// <summary>
+        /// The type of extension
+        /// </summary>
+        /// <returns></returns>
         public GeneratorExtensionTypes GetExtensionType()
         {
-            throw new NotImplementedException();
+            return GeneratorExtensionTypes.PersonExtension;
         }
         #endregion
     }

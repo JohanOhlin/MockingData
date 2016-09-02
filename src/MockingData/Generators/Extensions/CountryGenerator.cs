@@ -13,47 +13,75 @@ namespace MockingData.Generators.Extensions
 {
     public class CountryGenerator : ICountryGenerator
     {
-        public IList<ICountry> CountryList { get; private set; }
-        public CountryDistribution Distribution { get; private set; }
-        private IRandomGenerator _generator { get; set; }
-        public IDictionary<int, int> CustomDistribution { get; private set; }
+        private readonly IList<ICountry> _countryList;
+        private readonly CountryDistribution _distribution;
+        private readonly IRandomGenerator _generator;
+        private readonly IDictionary<int, int> _customDistribution;
 
         public CountryGenerator(IRandomGenerator randomGenerator, IList<ICountry> countryList, CountryDistribution distribution, IDictionary<int, int> customDistribution)
         {
-            CountryList = countryList;
+            _countryList = countryList;
             _generator = randomGenerator;
-            Distribution = distribution;
-            CustomDistribution = customDistribution;
+            _distribution = distribution;
+            _customDistribution = customDistribution;
         }
 
         #region ICountryGenerator
+
+        /// <summary>
+        /// Returns the list of countries that are being used
+        /// </summary>
+        /// <returns></returns>
+        public IList<ICountry> CountryList()
+        {
+            return _countryList;
+        }
+
+        /// <summary>
+        /// Returns the type of distribution being used
+        /// </summary>
+        /// <returns></returns>
+        public CountryDistribution Distribution()
+        {
+            return _distribution;
+        }
+
+        /// <summary>
+        /// Returns the specification for the custom distribution. This value is only used if Distribution is set to Custom.
+        /// </summary>
+        /// <returns></returns>
+        public IDictionary<int, int> CustomDistribution()
+        {
+            return _customDistribution;
+        }
+
         /// <summary>
         /// Returns a random country
         /// </summary>
         /// <returns></returns>
         public ICountry RandomCountry()
         {
-            var countryIdList = CountryList.Select(x => x.CountryId).ToList();
+            var countryIdList = _countryList.Select(x => x.CountryId).ToList();
 
             var countryId = 0;
-            switch (Distribution)
+            switch (_distribution)
             {
                 case CountryDistribution.Population:
-                    return _generator.RandomFromListUsingValueDistribution(CountryList, x => x.Population);
+                    return _generator.RandomFromListUsingValueDistribution(_countryList, x => x.Population);
                 case CountryDistribution.Area:
-                    return _generator.RandomFromListUsingValueDistribution(CountryList, x => x.AreaSquareKilometers);
+                    return _generator.RandomFromListUsingValueDistribution(_countryList, x => x.AreaSquareKilometers);
                 case CountryDistribution.Equal:
                     countryId = _generator.RandomFromList(countryIdList);
-                    return CountryList.FirstOrDefault(x => x.CountryId == countryId);
+                    return _countryList.FirstOrDefault(x => x.CountryId == countryId);
                 case CountryDistribution.Custom:
                     // Only include values from _customDistribution that are included in the countryIdList
-                    var filteredDistribution = CustomDistribution.Where(x => countryIdList.Contains(x.Key)).ToDictionary(x => x.Key, y => y.Value);
+                    var filteredDistribution = _customDistribution.Where(x => countryIdList.Contains(x.Key)).ToDictionary(x => x.Key, y => y.Value);
                     countryId = _generator.RandomFromMap(filteredDistribution);
-                    return CountryList.FirstOrDefault(x => x.CountryId == countryId);
+                    return _countryList.FirstOrDefault(x => x.CountryId == countryId);
                 default:
                     // This is same as equal distribution
                     countryId = _generator.RandomFromList(countryIdList);
-                    return CountryList.FirstOrDefault(x => x.CountryId == countryId);
+                    return _countryList.FirstOrDefault(x => x.CountryId == countryId);
             }
         }
 
