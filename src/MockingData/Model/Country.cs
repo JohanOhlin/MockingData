@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using MockingData.Generators.Random.Interfaces;
 using MockingData.Model.Interfaces;
 
 namespace MockingData.Model
 {
     public class Country : ICountry
     {
+
         public Country(int countryId)
         {
             CountryId = countryId;
@@ -24,21 +28,21 @@ namespace MockingData.Model
         /// </summary>
         public long AreaSquareMiles => (long)((double)AreaSquareKilometers * 0.38610);
 
-        public string CountryCallingCode { get; set; }
+        public string PhoneCountryCode { get; set; }
 
-        public string CountryCodeIsoAlpha2 { get; set; }
+        public string CodeIsoAlpha2 { get; set; }
 
-        public string CountryCodeIsoAlpha3 { get; set; }
+        public string CodeIsoAlpha3 { get; set; }
 
-        public string CountryCodeIsoNum { get; set; }
+        public string CodeIsoNumeric { get; set; }
 
         public int CountryId { get; set; }
 
-        public string CountryName { get; set; }
+        public string Name { get; set; }
 
-        public string CountryNameLocalized { get; set; }
+        public string NameLocalized { get; set; }
 
-        public string CountryNameLong { get; set; }
+        public string NameLong { get; set; }
 
         public string Currency { get; set; }
 
@@ -63,5 +67,10 @@ namespace MockingData.Model
         public IList<string> TitlesLocalizedFemale { get; set; }
 
         public IList<string> TitlesLocalizedMale { get; set; }
+
+        protected static IList<Street> InitiateStreets(params string[] streetName)
+        {
+            return streetName.Select(street => new Street(street)).ToList();
+        }
     }
 }

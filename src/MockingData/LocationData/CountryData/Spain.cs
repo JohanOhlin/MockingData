@@ -22,17 +22,17 @@ namespace MockingData.LocationData.CountryData
         {
             GeoCoordinate = new GeoCoordinate(40.463667, -3.74922);
 
-            CountryName = "Spain";
-            CountryNameLong = "Spain";
-            CountryNameLocalized = "Espana";
+            Name = "Spain";
+            NameLong = "Spain";
+            NameLocalized = "Espana";
 
-            CountryCodeIsoNum = "724";
-            CountryCodeIsoAlpha2 = "ES";
-            CountryCodeIsoAlpha3 = "ESP";
+            CodeIsoNumeric = "724";
+            CodeIsoAlpha2 = "ES";
+            CodeIsoAlpha3 = "ESP";
 
             Currency = "EUR";
             CurrencyName = "EURO";
-            CountryCallingCode = "344";
+            PhoneCountryCode = "344";
 
             HasCompleteData = true;
             HasStates = true;

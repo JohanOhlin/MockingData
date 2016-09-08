@@ -7,8 +7,8 @@ namespace MockingData.LocationData.CountryData
     {
         public Portugal(int countryId) : base(countryId)
         {
-            CountryName = "Portugal";
-            CountryCodeIsoAlpha2 = "PT";
+            Name = "Portugal";
+            CodeIsoAlpha2 = "PT";
             Currency = "EUR";
             GeoCoordinate = new GeoCoordinate(39.399872, -8.224454);
             HasCompleteData = false;

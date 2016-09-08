@@ -12,35 +12,35 @@ namespace MockingData.Model.Interfaces
         /// <summary>
         /// English version of the country name
         /// </summary>
-        string CountryName { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// Longer version of CountryName, or the same if no longer version exists
         /// </summary>
-        string CountryNameLong { get; set; }
+        string NameLong { get; set; }
 
         /// <summary>
         /// Localized version of the country name
         /// </summary>
-        string CountryNameLocalized { get; set; }
+        string NameLocalized { get; set; }
 
         /// <summary>
         /// 3 num ISO Numeric Code UN M49. It's a string because some codes starts with 0s.
         /// http://www.nationsonline.org/oneworld/country_code_list.htm
         /// </summary>
-        string CountryCodeIsoNum { get; set; }
+        string CodeIsoNumeric { get; set; }
 
         /// <summary>
         /// 2 character country code according to the ISO 3166 standard
         /// http://www.nationsonline.org/oneworld/country_code_list.htm
         /// </summary>
-        string CountryCodeIsoAlpha2 { get; set; }
+        string CodeIsoAlpha2 { get; set; }
 
         /// <summary>
         /// 3 character country code according to ISO Alpha 3. This code is often used in events.
         /// http://www.nationsonline.org/oneworld/country_code_list.htm
         /// </summary>
-        string CountryCodeIsoAlpha3 { get; set; }
+        string CodeIsoAlpha3 { get; set; }
 
         /// <summary>
         /// 3 character currency code according to the ISO 4217 standard (based upon the ISO 3166 standard)
@@ -58,7 +58,7 @@ namespace MockingData.Model.Interfaces
         /// International Calling Code for the country
         /// http://www.nationsonline.org/oneworld/international-calling-codes.htm
         /// </summary>
-        string CountryCallingCode { get; set; }
+        string PhoneCountryCode { get; set; }
 
         /// <summary>
         /// Population in the country

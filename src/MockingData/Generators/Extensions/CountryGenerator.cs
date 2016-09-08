@@ -118,7 +118,7 @@ namespace MockingData.Generators.Extensions
             IClock clock = SystemClock.Instance;
 
             var location = TzdbDateTimeZoneSource.Default.ZoneLocations
-                             .FirstOrDefault(loc => loc.CountryCode == country.CountryCodeIsoAlpha2);
+                             .FirstOrDefault(loc => loc.CountryCode == country.CodeIsoAlpha2);
 
             return location == null ? DateTimeZone.Utc : DateTimeZoneProviders.Tzdb[location.ZoneId];
         }

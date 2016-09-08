@@ -1,4 +1,5 @@
-﻿using NodaTime;
+﻿using System.Collections.Generic;
+using NodaTime;
 
 namespace MockingData.Model
 {
@@ -25,6 +26,9 @@ namespace MockingData.Model
         public bool IsStateCapital { get; set; } = false;
 
         /// <summary>
+        /// The phone area code for this city. This value should be without the leading 0, in the way
+        /// you combine it when put together with the phone country code
+        /// 
         /// This value isn't complete in the country lists
         /// </summary>
         public string PhoneAreaCode { get; set; }
@@ -38,6 +42,13 @@ namespace MockingData.Model
         /// This value isn't complete in the country lists
         /// </summary>
         public string PostalCode { get; set; }
+
+        /// <summary>
+        /// A list of potential streets in the city
+        /// 
+        /// This value isn't complete in the country list and is thus not guaranteed.
+        /// </summary>
+        public IList<Street> Streets { get; set; }
 
         /// <summary>
         /// State this city is connected to

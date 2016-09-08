@@ -9,7 +9,7 @@ using Xunit;
 namespace MockingDataTests.LocationData
 {
     [Trait("Location data", "States")]
-    public class When_Working_Wtih_Registered_States
+    public class When_Working_Wtih_States
     {
         [Fact]
         public void All_States_In_Valid_Countries_Should_Have_A_State_Capital()
@@ -22,12 +22,12 @@ namespace MockingDataTests.LocationData
                 .SelectMany(x => x.States, (country, state) => new { country, state })
                 .SelectMany(s => s.state.Cities, (csgroup, city) => new { state = csgroup.state, city })
                 .GroupBy(x => x.state)
-                .Where(x => x.Count(w => w.city.IsStateCapital) == 0)
+                .Where(x => x.Count(w => w.city.IsStateCapital) != 1)
                 .Select(x => x.Key.Name)
                 .ToList();
 
             // Assert
-            statesWithoutStateCapital.Should().HaveCount(0, $" all states should have a STATE CAPITAL (these are missing: {string.Join(",", statesWithoutStateCapital)})");
+            statesWithoutStateCapital.Should().HaveCount(0, $" all states should have ONE STATE CAPITAL (these are missing or having too many: {string.Join(",", statesWithoutStateCapital)})");
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace MockingDataTests.LocationData
             var statesWithoutAName = countries
                 .SelectMany(x => x.States, (country, state) => new {country, state})
                 .Where(x => string.IsNullOrEmpty(x.state.Name))
-                .Select(x => x.country.CountryName)
+                .Select(x => x.country.Name)
                 .ToList();
 
             // Assert

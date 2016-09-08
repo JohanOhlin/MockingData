@@ -1,6 +1,8 @@
 ﻿using System;
 using MockingData.Generators.Extensions;
 using MockingData.Generators.Extensions.Interfaces;
+using MockingData.Generators.Random;
+using MockingData.Generators.Random.Extensions;
 using MockingData.Generators.Random.Interfaces;
 using MockingData.Model.Interfaces;
 using NodaTime;
@@ -11,6 +13,7 @@ namespace MockingData.Model
     {
         private readonly IRandomGenerator _generator;
         private readonly IExtensionService _extensionService;
+        private readonly IPatternMatching _patternMatching;
 
         private ICountryGenerator _countryGenerator;
         private ICountryGenerator CountryGenerator => _countryGenerator ?? (_countryGenerator = _extensionService.GetGenerator<ICountryGenerator>());
@@ -22,11 +25,11 @@ namespace MockingData.Model
         {
             _generator = generator;
             _extensionService = extensionService;
+            _patternMatching = new PatternMatching(_generator);
         }
 
         private Gender? _gender;
-        public Gender Gender
-        {
+        public Gender Gender {
             get
             {
                 if (!_gender.HasValue)
@@ -38,59 +41,39 @@ namespace MockingData.Model
         }
 
         private string _title;
+ 
+        public string Title => _title ?? (_title = PersonGenerator.RandomTitle(Country, Gender));
 
-        public string Title
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_title))
-                {
-                    _title = PersonGenerator.RandomTitle(Country, Gender);
-                }
-                return _title;
-            }
-        }
 
         private string _firstName;
-        public string FirstName
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_firstName)){
-                    _firstName = PersonGenerator.RandomFirstName(Country, Gender);  
-                }
-                return _firstName;
-            }
-        }
+        public string FirstName => _firstName ?? (_firstName = PersonGenerator.RandomFirstName(Country, Gender));
+
 
         private string _lastName;
-        public string LastName {
-            get {
-                if (string.IsNullOrEmpty(_lastName)) {
-                    _lastName = PersonGenerator.RandomLastName(Country);
-                }
-                return _lastName;
-            }
-        }
+        public string LastName => _lastName ?? (_lastName = PersonGenerator.RandomLastName(Country));
+
+
+        private Street _street;
+        public Street Street => _street ?? (_street = City.Streets.RandomFromList());
+
+
+        private string _postalCode;
+        public string PostalCode => _postalCode ?? (_postalCode = _patternMatching.RandomAlphaNumFromPattern(Street.PostalCode));
+
 
         private City _city;
         public City City => _city ?? (_city = CountryGenerator.RandomCity(State));
 
+
         private State _state;
         public State State => _state ?? (_state = CountryGenerator.RandomState(Country));
 
+
         private ICountry _country;
-        public ICountry Country {
-            get
-            {
-                if (_country != null) return _country;
-                _country = CountryGenerator.RandomCountry();
-                return _country;
-            }
-        }
+        public ICountry Country => _country ?? (_country = CountryGenerator.RandomCountry());
+
 
         private string _email;
-
         public string Email {
             get {
                 if (!string.IsNullOrEmpty(_email)) return _email;

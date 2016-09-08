@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MockingData.Model;
 using NodaTime;
 using NodaTime.TimeZones;
 using Xunit;
@@ -13,7 +14,7 @@ using Xunit;
 namespace MockingDataTests.LocationData
 {
     [Trait("Location data", "Countries")]
-    public class When_Working_With_Registered_Countries
+    public class When_Working_With_Countries
     {
         [Fact]
         public void All_Valid_Countries_Should_Have_A_Country_Capital()
@@ -26,12 +27,12 @@ namespace MockingDataTests.LocationData
                 .SelectMany(x => x.States, (country, state) => new { country, state })
                 .SelectMany(s => s.state.Cities, (csgroup, city) => new { country = csgroup.country, city })
                 .GroupBy(x => x.country)
-                .Where(x => x.Count(w => w.city.IsCountryCapital) == 0)
-                .Select(x => x.Key.CountryName)
+                .Where(x => x.Count(w => w.city.IsCountryCapital) != 1)
+                .Select(x => x.Key.Name)
                 .ToList();
 
             // Assert
-            citiesWithoutPopulation.Should().HaveCount(0, $" all countries should have a COUNTRY CAPITAL (these are missing: {string.Join(",", citiesWithoutPopulation)})");
+            citiesWithoutPopulation.Should().HaveCount(0, $" all countries should have ONE COUNTRY CAPITAL (these are missing or have too many: {string.Join(",", citiesWithoutPopulation)})");
 
         }
 
@@ -44,7 +45,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutId = countries
                 .Where(x => x.CountryId <= 0)
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -60,8 +61,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutName = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryName))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.Name))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -76,8 +77,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutNameLong = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryNameLong))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.NameLong))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -92,8 +93,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutNameLocalized = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryNameLocalized))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.NameLocalized))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -109,8 +110,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutIsoNum = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryCodeIsoNum))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.CodeIsoNumeric))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -125,8 +126,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutIsoAlpha2 = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryCodeIsoAlpha2))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.CodeIsoAlpha2))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -141,8 +142,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutIsoAlpha3 = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryCodeIsoAlpha3))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.CodeIsoAlpha3))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -160,7 +161,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutCurrency = countries
                 .Where(x => string.IsNullOrEmpty(x.Currency))
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -176,7 +177,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutCurrencyName = countries
                 .Where(x => string.IsNullOrEmpty(x.CurrencyName))
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -192,8 +193,8 @@ namespace MockingDataTests.LocationData
 
             // Act
             var countriesWithoutCallingCode = countries
-                .Where(x => string.IsNullOrEmpty(x.CountryCallingCode))
-                .Select(x => x.CountryName)
+                .Where(x => string.IsNullOrEmpty(x.PhoneCountryCode))
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -209,7 +210,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutPopulation = countries
                 .Where(x => x.Population <= 0)
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -225,7 +226,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutArea = countries
                 .Where(x => x.AreaSquareKilometers <= 0)
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -242,7 +243,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutGeoCoordinates = countries
                 .Where(x => Math.Abs(x.GeoCoordinate.Latitude - default(double)) < TOLERANCE || Math.Abs(x.GeoCoordinate.Longitude - default(double)) < TOLERANCE)
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -258,7 +259,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutMaleTitles = countries
                 .Where(x => !x.TitlesLocalizedMale.Any())
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -274,7 +275,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutFemaleTitles = countries
                 .Where(x => !x.TitlesLocalizedFemale.Any())
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -290,7 +291,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutFirstnamesMale = countries
                 .Where(x => !x.FirstNamesMale.Any())
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -306,7 +307,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutFirstnamesFemale = countries
                 .Where(x => !x.FirstNamesFemale.Any())
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -322,7 +323,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutLastnames = countries
                 .Where(x => !x.LastNames.Any())
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -338,7 +339,7 @@ namespace MockingDataTests.LocationData
             // Act
             var countriesWithoutStates = countries
                 .Where(x => x.HasStates && x.States.Count() <= 1)
-                .Select(x => x.CountryName)
+                .Select(x => x.Name)
                 .ToList();
 
             // Assert
@@ -356,7 +357,7 @@ namespace MockingDataTests.LocationData
             foreach (var country in countries)
             {
                 var location = TzdbDateTimeZoneSource.Default.ZoneLocations
-                                 .FirstOrDefault(loc => loc.CountryCode == country.CountryCodeIsoAlpha2);
+                                 .FirstOrDefault(loc => loc.CountryCode == country.CodeIsoAlpha2);
 
                 // Assert
                 location.Should().NotBeNull();
