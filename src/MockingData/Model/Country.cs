@@ -72,5 +72,24 @@ namespace MockingData.Model
         {
             return streetName.Select(street => new Street(street)).ToList();
         }
+
+        protected void PostInitiation()
+        {
+            foreach (var state in States)
+            {
+                if (state.Cities == null) return;
+
+                foreach (var city in state.Cities)
+                {
+                    city.State = state;
+                    if (city.Streets == null) return;
+
+                    foreach (var street in city.Streets)
+                    {
+                        street.City = city;
+                    }
+                }
+            }
+        }
     }
 }

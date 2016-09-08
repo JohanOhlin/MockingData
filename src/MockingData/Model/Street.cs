@@ -27,7 +27,13 @@ namespace MockingData.Model
         public string PostalCode {
             get
             {
-                return _postalCode ?? City.PostalCode;
+                if (_postalCode != null)
+                    return _postalCode;
+
+                if (City != null)
+                    return City.PostalCode;
+
+                throw new Exception($"Street {Name} is missing link to a city");
             }
             set { _postalCode = value; }
         }
@@ -47,7 +53,7 @@ namespace MockingData.Model
         /// </summary>
         public RangeBetween NumberMinMax { get; set; }
 
-        public Street(string name = "", string postalCode = "")
+        public Street(string name = "", string postalCode = null)
         {
             Name = name;
             PostalCode = postalCode;

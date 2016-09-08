@@ -80,8 +80,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Bedford", PhoneAreaCode = "1234", PostalCode = "MK40 [9ZZ]", Streets = InitiateStreets("Lurke St","Ram Yard","Rothsay Pl"), Population = 102000, IsStateCapital = true},
-                        new City {Name = "Luton", PhoneAreaCode = "1582", PostalCode = "LU[9] [9ZZ]", Streets = InitiateStreets("Clarendon Rd","Ridgway Rd","Wardown Cres"), Population = 236000}
+                        new City {Name = "Bedford", PhoneAreaCode = "1234", PostalCode = "MK40 [0AA]", Streets = InitiateStreets("Lurke St","Ram Yard","Rothsay Pl"), Population = 102000, IsStateCapital = true},
+                        new City {Name = "Luton", PhoneAreaCode = "1582", PostalCode = "LU[0] [0AA]", Streets = InitiateStreets("Clarendon Rd","Ridgway Rd","Wardown Cres"), Population = 236000}
                     }
                 },
                 new State
@@ -93,7 +93,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Cambridge", PhoneAreaCode = "1223", PostalCode = "CB1 [9ZZ]", Streets = InitiateStreets("Pembroke St","Russell St","Bateman St"), Population = 128515, IsStateCapital = true}
+                        new City {Name = "Cambridge", PhoneAreaCode = "1223", PostalCode = "CB1 [0AA]", Streets = InitiateStreets("Pembroke St","Russell St","Bateman St"), Population = 128515, IsStateCapital = true}
                     }
                 },
                 new State
@@ -105,7 +105,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Truro", PhoneAreaCode = "1872", PostalCode = "TR1 [9ZZ]", Streets = InitiateStreets("Prospect Pl","Rosewin Row","Fairmantle St"), Population = 18766, IsStateCapital = true}
+                        new City {Name = "Truro", PhoneAreaCode = "1872", PostalCode = "TR1 [0AA]", Streets = InitiateStreets("Prospect Pl","Rosewin Row","Fairmantle St"), Population = 18766, IsStateCapital = true}
                     }
                 },
                 new State
@@ -117,7 +117,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Exeter", PhoneAreaCode = "1392", PostalCode = "EX1 [9ZZ]", Streets = InitiateStreets("Market St","Smythen St","Mary Arches St"), Population = 124328, IsStateCapital = true}
+                        new City {Name = "Exeter", PhoneAreaCode = "1392", PostalCode = "EX1 [0AA]", Streets = InitiateStreets("Market St","Smythen St","Mary Arches St"), Population = 124328, IsStateCapital = true}
                     }
                 },
                 new State
@@ -129,7 +129,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Dorchester", PhoneAreaCode = "1305", PostalCode = "DT1 [9ZZ]", Streets = InitiateStreets("Poets Way","Edward Rd","Alexandra Rd"), Population = 19060, IsStateCapital = true}
+                        new City {Name = "Dorchester", PhoneAreaCode = "1305", PostalCode = "DT1 [0AA]", Streets = InitiateStreets("Poets Way","Edward Rd","Alexandra Rd"), Population = 19060, IsStateCapital = true}
                     }
                 },
                 new State
@@ -141,7 +141,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Chelmsford", PhoneAreaCode = "1245", PostalCode = "CM1 [9ZZ]", Streets = InitiateStreets("Viaduct Rd","Marconi Plaza","Duke St"), Population = 168310, IsStateCapital = true}
+                        new City {Name = "Chelmsford", PhoneAreaCode = "1245", PostalCode = "CM1 [0AA]", Streets = InitiateStreets("Viaduct Rd","Marconi Plaza","Duke St"), Population = 168310, IsStateCapital = true}
                     }
                 },
                 new State
@@ -153,7 +153,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Winchester", PhoneAreaCode = "1962", PostalCode = "SO22 [9ZZ]", Streets = InitiateStreets("Lower Brook St","Union St","St Thomas St"), Population = 45184, IsStateCapital = true}
+                        new City {Name = "Winchester", PhoneAreaCode = "1962", PostalCode = "SO22 [0AA]", Streets = InitiateStreets("Lower Brook St","Union St","St Thomas St"), Population = 45184, IsStateCapital = true}
                     }
                 },
                 new State
@@ -167,7 +167,7 @@ namespace MockingData.LocationData.CountryData
                     {
                         // City of London only has 7000 residents and might be the correct one here, but would
                         // give an unexpected outcome since people in general see London as a million capital
-                        new City {Name = "London", PhoneAreaCode = "20", PostalCode = "NW[9] [9ZZ]", Streets = InitiateStreets("Chapter Rd","Leigh Gardens","Dundonald Rd","Mill Ln","Exeter Rd","Dartmouth Rd","Fordwych Rd","Garlinge Rd","Maygrove Rd","Iverson Rd","Brassey Rd","Ravenshaw St","Dyne Rd","Plympton Rd","Callcott Rd","Torbay Rd","Winchester Ave","Kimberley Rd","Iverson Rd","Kingdon Rd","Holmdale Rd","Solent Rd","Sumatra Rd","Canfield Gardens","Cleve Rd","Crediton Hill","Fawley Rd","Lymington Rd","Wakemand Rd","Rainham Rd","Greyhound Rd","Earlsmead Rd","Hiley Rd","Ashburnham Rd","Drayton Rd","Chadwick Rd","Fry Rd","Ambleside Rd","Mortimer Rd"), Population = 8174000, IsStateCapital = true, IsCountryCapital = true}
+                        new City {Name = "London", PhoneAreaCode = "20", PostalCode = "NW[0] [0AA]", Streets = InitiateStreets("Chapter Rd","Leigh Gardens","Dundonald Rd","Mill Ln","Exeter Rd","Dartmouth Rd","Fordwych Rd","Garlinge Rd","Maygrove Rd","Iverson Rd","Brassey Rd","Ravenshaw St","Dyne Rd","Plympton Rd","Callcott Rd","Torbay Rd","Winchester Ave","Kimberley Rd","Iverson Rd","Kingdon Rd","Holmdale Rd","Solent Rd","Sumatra Rd","Canfield Gardens","Cleve Rd","Crediton Hill","Fawley Rd","Lymington Rd","Wakemand Rd","Rainham Rd","Greyhound Rd","Earlsmead Rd","Hiley Rd","Ashburnham Rd","Drayton Rd","Chadwick Rd","Fry Rd","Ambleside Rd","Mortimer Rd"), Population = 8174000, IsStateCapital = true, IsCountryCapital = true}
                     }
                 },
                 new State
@@ -179,7 +179,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Norwich", PhoneAreaCode = "1603", PostalCode = "NR1 [9ZZ]", Streets = InitiateStreets("Wensum St","Fye Bridge St","Fishergate"), Population = 213166, IsStateCapital = true}  // Bedford Street
+                        new City {Name = "Norwich", PhoneAreaCode = "1603", PostalCode = "NR1 [0AA]", Streets = InitiateStreets("Wensum St","Fye Bridge St","Fishergate"), Population = 213166, IsStateCapital = true}  // Bedford Street
                     }
                 },
                 new State
@@ -191,8 +191,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City () { Name = "Northampton", PhoneAreaCode = "1604", PostalCode = "NN1 [9ZZ]", Streets = InitiateStreets("Abington St","Gold St","Herbert St"), Population = 219500, IsStateCapital = true }, 
-                        new City { Name = "Kettering", PhoneAreaCode = "1536", PostalCode = "NN16 [9ZZ]", Streets = InitiateStreets("Lahnstein Court","Sheep St","Queensberry Rd"), Population = 67635 }
+                        new City () { Name = "Northampton", PhoneAreaCode = "1604", PostalCode = "NN1 [0AA]", Streets = InitiateStreets("Abington St","Gold St","Herbert St"), Population = 219500, IsStateCapital = true }, 
+                        new City { Name = "Kettering", PhoneAreaCode = "1536", PostalCode = "NN16 [0AA]", Streets = InitiateStreets("Lahnstein Court","Sheep St","Queensberry Rd"), Population = 67635 }
                     }
                 },
                 new State
@@ -204,7 +204,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City { Name = "Taunton", PhoneAreaCode = "1823", PostalCode = "TA1 [9ZZ]", Streets = InitiateStreets("Part St", "Upper High St", "Tower St"), Population = 64621, IsStateCapital = true }
+                        new City { Name = "Taunton", PhoneAreaCode = "1823", PostalCode = "TA1 [0AA]", Streets = InitiateStreets("Part St", "Upper High St", "Tower St"), Population = 64621, IsStateCapital = true }
                     }
                 },
                 new State
@@ -216,7 +216,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Ipswich", PhoneAreaCode = "1473", PostalCode = "IP4 [9ZZ]", Streets = InitiateStreets("Museum St","Orwell Pl","College St"), Population = 133384, IsStateCapital = true}
+                        new City {Name = "Ipswich", PhoneAreaCode = "1473", PostalCode = "IP4 [0AA]", Streets = InitiateStreets("Museum St","Orwell Pl","College St"), Population = 133384, IsStateCapital = true}
                     }
                 },
                 new State
@@ -228,7 +228,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Guildford", PhoneAreaCode = "1483", PostalCode = "GU1 [9ZZ]", Streets = InitiateStreets("Haydon Pl","The Bars","Martyr Rd"), Population = 137200, IsStateCapital = true}
+                        new City {Name = "Guildford", PhoneAreaCode = "1483", PostalCode = "GU1 [0AA]", Streets = InitiateStreets("Haydon Pl","The Bars","Martyr Rd"), Population = 137200, IsStateCapital = true}
                     }
                 },
                 new State
@@ -240,8 +240,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Warwick", PhoneAreaCode = "1926", PostalCode = "CV34 [9ZZ]", Streets = InitiateStreets("Priory Rd","Castle Ln","Church St"), Population = 59679, IsStateCapital = true},
-                        new City {Name = "Nuneaton", PhoneAreaCode = "24", PostalCode = "CV10 [9ZZ]", Streets = InitiateStreets("Queens Rd","Corporation St","Abbey St"), Population = 81877},
+                        new City {Name = "Warwick", PhoneAreaCode = "1926", PostalCode = "CV34 [0AA]", Streets = InitiateStreets("Priory Rd","Castle Ln","Church St"), Population = 59679, IsStateCapital = true},
+                        new City {Name = "Nuneaton", PhoneAreaCode = "24", PostalCode = "CV10 [0AA]", Streets = InitiateStreets("Queens Rd","Corporation St","Abbey St"), Population = 81877},
                     }
                 },
                 new State
@@ -253,10 +253,13 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Worcester", PhoneAreaCode = "1905", PostalCode = "WR1 [9ZZ]", Streets = InitiateStreets("Moor St","Quay St","Middle St"), Population = 100000, IsStateCapital = true}
+                        new City {Name = "Worcester", PhoneAreaCode = "1905", PostalCode = "WR1 [0AA]", Streets = InitiateStreets("Moor St","Quay St","Middle St"), Population = 100000, IsStateCapital = true}
                     }
                 }
             };
+
+            PostInitiation();
+            
             // Update all cities with London timezone
             var timezone = DateTimeZoneProviders.Tzdb["Europe/London"];
             foreach (var state in States)

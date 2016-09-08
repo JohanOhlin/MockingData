@@ -256,6 +256,8 @@ namespace MockingData.LocationData.CountryData
                 }
             };
 
+            PostInitiation();
+
             // Update all cities with Spain/Madrid timezone
             var timezone = DateTimeZoneProviders.Tzdb["Europe/Madrid"];
             foreach (var state in States)
