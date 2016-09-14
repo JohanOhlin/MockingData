@@ -56,7 +56,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Seville", Population = 703021, IsStateCapital = true}
+                        new City {Name = "Seville", PhoneAreaCode = "", PostalCode = "41[000]",Streets = InitiateStreets("","",""), Population = 703021, IsStateCapital = true}
                     }
                 },
                 new State
@@ -68,7 +68,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Zaragoza", Population = 666058, IsStateCapital = true}
+                        new City {Name = "Zaragoza", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 666058, IsStateCapital = true}
                     }
                 },
                 new State
@@ -80,7 +80,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Gijón", Population = 276473, IsStateCapital = true}
+                        new City {Name = "Gijón", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 276473, IsStateCapital = true}
                     }
                 },
                 new State
@@ -92,7 +92,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Palma de Mallorca", Population = 401270, IsStateCapital = true}
+                        new City {Name = "Palma de Mallorca", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 401270, IsStateCapital = true}
                     }
                 },
                 new State
@@ -104,8 +104,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Bilbao", Population = 345141},
-                        new City {Name = "Vitoria-Gasteiz", Population = 243918, IsStateCapital = true }
+                        new City {Name = "Bilbao", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 345141},
+                        new City {Name = "Vitoria-Gasteiz", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 243918, IsStateCapital = true }
                     }
                 },
                 new State
@@ -117,8 +117,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santa Cruz de Tenerife", Population = 206593, IsStateCapital = true},
-                        new City {Name = "Las Palmas de Gran Canaria", Population = 383308, IsStateCapital = true}
+                        new City {Name = "Santa Cruz de Tenerife", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 206593, IsStateCapital = true},
+                        new City {Name = "Las Palmas de Gran Canaria", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 383308, IsStateCapital = true}
                     }
                 },
                 new State
@@ -130,7 +130,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santander", Population = 178465, IsStateCapital = true}
+                        new City {Name = "Santander", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 178465, IsStateCapital = true}
                     }
                 },
                 new State
@@ -142,8 +142,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Toledo", Population = 84019, IsStateCapital = true},
-                        new City {Name = "Albacete", Population = 172693 }
+                        new City {Name = "Toledo", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 84019, IsStateCapital = true},
+                        new City {Name = "Albacete", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 172693 }
                     }
                 },
                 new State
@@ -155,7 +155,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Valladolid", Population = 309714, IsStateCapital = true}
+                        new City {Name = "Valladolid", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 309714, IsStateCapital = true}
                     }
                 },
                 new State
@@ -167,7 +167,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Barcelona", Population = 1604555, IsStateCapital = true}
+                        new City {Name = "Barcelona", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 1604555, IsStateCapital = true}
                     }
                 },
                 new State
@@ -179,7 +179,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Mérida", Population = 58164, IsStateCapital = true}
+                        new City {Name = "Mérida", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 58164, IsStateCapital = true}
                     }
                 },
                 new State
@@ -191,7 +191,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santiago de Compostela", Population = 95671, IsStateCapital = true}
+                        new City {Name = "Santiago de Compostela", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 95671, IsStateCapital = true}
                     }
                 },
                 new State
@@ -203,7 +203,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Logroño", Population = 153736, IsStateCapital = true}
+                        new City {Name = "Logroño", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 153736, IsStateCapital = true}
                     }
                 },
                 new State
@@ -215,7 +215,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Madrid", Population = 3141991, IsStateCapital = true, IsCountryCapital = true}
+                        new City {Name = "Madrid", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","",""), Population = 3141991, IsStateCapital = true, IsCountryCapital = true}
                     }
                 },
                 new State
@@ -227,19 +227,19 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Murcia", Population = 442573, IsStateCapital = true}
+                        new City {Name = "Murcia", PhoneAreaCode = "968", PostalCode = "30100",Streets = InitiateStreets("","",""), Population = 442573, IsStateCapital = true}
                     }
                 },
                 new State
                 {
                     Code = "NA",
-                    Name = "Navarra",
+                    Name = "Navarre",
                     AreaSquareKilometers = 10391,
                     Population = 640790,
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Pamplona", Population = 195853, IsStateCapital = true}
+                        new City {Name = "Pamplona", PhoneAreaCode = "", PostalCode = "3100[0]",Streets = InitiateStreets("","",""), Population = 195853, IsStateCapital = true}
                     }
                 },
                 new State
@@ -251,7 +251,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Valencia", Population = 809267, IsStateCapital = true}
+                        new City {Name = "Valencia", PhoneAreaCode = "", PostalCode = "4601[0]",Streets = InitiateStreets("","",""), Population = 809267, IsStateCapital = true}
                     }
                 }
             };

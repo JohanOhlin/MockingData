@@ -84,6 +84,12 @@ namespace MockingData.Model
             }
         }
 
+        public string PhoneLocal => _generator.Next(1000000, 9999999).ToString();
+
+        public string PhoneDomestic => $"0{City.PhoneAreaCode}{PhoneLocal}";
+
+        public string PhoneInternational => $"+{Country.PhoneCountryCode}{City.PhoneAreaCode}{PhoneLocal}";
+
         public void SetEmailAddress(string email)
         {
             _email = email;
