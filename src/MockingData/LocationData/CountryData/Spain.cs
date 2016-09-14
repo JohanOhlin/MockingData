@@ -56,7 +56,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Seville", PhoneAreaCode = "", PostalCode = "41[000]",Streets = InitiateStreets("Calle Santiago","Calle Urquiza","Calle Arroyo", "Calle Socorro", "Calle Sol","Calle Castellar"), Population = 703021, IsStateCapital = true}
+                        new City {Name = "Seville", PhoneAreaCode = "954", PostalCode = "410{0-1}[0]",Streets = InitiateStreets("Calle Santiago","Calle Urquiza","Calle Arroyo", "Calle Socorro", "Calle Sol","Calle Castellar"), Population = 703021, IsStateCapital = true}
                     }
                 },
                 new State
@@ -68,7 +68,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Zaragoza", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("Calle Tarragona","Calle Santander","Calle Burgos","Calle de Bolivia","Calle Cosme Blasco","Calle Segovia"), Population = 666058, IsStateCapital = true}
+                        new City {Name = "Zaragoza", PhoneAreaCode = "876", PostalCode = "5000{1-9}",Streets = InitiateStreets("Calle Tarragona","Calle Santander","Calle Burgos","Calle de Bolivia","Calle Cosme Blasco","Calle Segovia"), Population = 666058, IsStateCapital = true}
                     }
                 },
                 new State
@@ -80,7 +80,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Gijón", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 276473, IsStateCapital = true}
+                        new City {Name = "Gijón", PhoneAreaCode = "984", PostalCode = "33691",Streets = InitiateStreets("Calle Soria","Calle Baleares","Calle Valencia","Calle Ana Maria","Calle Zoila","Calle Julio"), Population = 276473, IsStateCapital = true}
                     }
                 },
                 new State
@@ -92,7 +92,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Palma de Mallorca", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 401270, IsStateCapital = true}
+                        new City {Name = "Palma de Mallorca", PhoneAreaCode = "871", PostalCode = "0700{1-9}",Streets = InitiateStreets("Carrer del Sindicat","Carrer dels Hostals","Carrer Esguerrat","Carrer Quartereta","Carrer dels Frares","Carrer del Deganat"), Population = 401270, IsStateCapital = true}
                     }
                 },
                 new State
@@ -104,8 +104,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Bilbao", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 345141},
-                        new City {Name = "Vitoria-Gasteiz", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 243918, IsStateCapital = true }
+                        new City {Name = "Bilbao", PhoneAreaCode = "94", PostalCode = "4800{1-9}",Streets = InitiateStreets("Urkixo Zumarkalea","Bizkaia Plaza","Elcano Kalea","Labayru Kalea","Calixto Diez Kalea","Kontozezio Kalea"), Population = 345141},
+                        new City {Name = "Vitoria-Gasteiz", PhoneAreaCode = "945", PostalCode = "0100{1-9}",Streets = InitiateStreets("Ori Kalea","Sierra de Andia Kalea","Gabriel Celaya Kalea","Txirpia Kalea","Elorrio Kalea","Azpeitia Kalea"), Population = 243918, IsStateCapital = true }
                     }
                 },
                 new State
@@ -117,8 +117,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santa Cruz de Tenerife", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 206593, IsStateCapital = true},
-                        new City {Name = "Las Palmas de Gran Canaria", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 383308, IsStateCapital = true}
+                        new City {Name = "Santa Cruz de Tenerife", PhoneAreaCode = "922", PostalCode = "3800{1-9}",Streets = InitiateStreets("Calle Padre Anchieta","Calle Cervantes","Calle de Leoncio Rodriguez","Av. de Buenos Aires","Rambla de Pulido","Calle Maria Cristina"), Population = 206593, IsStateCapital = true},
+                        new City {Name = "Las Palmas de Gran Canaria", PhoneAreaCode = "928", PostalCode = "3500{1-9}",Streets = InitiateStreets("Calle Juan de Bethencourt","Calle Leopardi","Calle Lord Byron","Calle Puccini","Calle Quintana","Calle Alemania"), Population = 383308}
                     }
                 },
                 new State
@@ -130,7 +130,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santander", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 178465, IsStateCapital = true}
+                        new City {Name = "Santander", PhoneAreaCode = "942", PostalCode = "3900{1-9}",Streets = InitiateStreets("Calle Tres de Noviembre","Calle Alta","Via Cornelia","Calle San Sebastian","Calle Laredo","Calle Isaac Peral"), Population = 178465, IsStateCapital = true}
                     }
                 },
                 new State
@@ -142,8 +142,8 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Toledo", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 84019, IsStateCapital = true},
-                        new City {Name = "Albacete", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 172693 }
+                        new City {Name = "Toledo", PhoneAreaCode = "925", PostalCode = "4500{1-8}",Streets = InitiateStreets("Calle Sal","Calle Plata","Calle Alfileritos","Calle Nueva","Calle Silleria","Calle de Toledo de Ohio"), Population = 84019, IsStateCapital = true},
+                        new City {Name = "Albacete", PhoneAreaCode = "967", PostalCode = "0200{1-7}",Streets = InitiateStreets("Calle Rios Rosas","Calle Pedro Coca","Calle Blasco de Garay","Calle Angel","Calle Tejares","Calle Cid"), Population = 172693 }
                     }
                 },
                 new State
@@ -155,7 +155,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Valladolid", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 309714, IsStateCapital = true}
+                        new City {Name = "Valladolid", PhoneAreaCode = "983", PostalCode = "4700{1-9}",Streets = InitiateStreets("Calle de Fray Luis de Léon","Calle Real","Calle Macias Picavea","Calle Sanz y Fores","Calle Huertas","Paseo Prado de la Magdalena"), Population = 309714, IsStateCapital = true}
                     }
                 },
                 new State
@@ -167,7 +167,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Barcelona", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 1604555, IsStateCapital = true}
+                        new City {Name = "Barcelona", PhoneAreaCode = "930", PostalCode = "0800{1-6}",Streets = InitiateStreets("Carrer de Quevedo","Carrer de Ciudad Real","Carrer de Bruniquer","Carrer del Montseny","Carrer de Verdi","Carrer del Topazi"), Population = 1604555, IsStateCapital = true}
                     }
                 },
                 new State
@@ -179,7 +179,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Mérida", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 58164, IsStateCapital = true}
+                        new City {Name = "Mérida", PhoneAreaCode = "924", PostalCode = "06800",Streets = InitiateStreets("Calle San José","Calle Louis Braille","Calle Delgado Valencia","Calle Cervantes","Calle Reyes Huertas","Calle Piedad"), Population = 58164, IsStateCapital = true}
                     }
                 },
                 new State
@@ -191,7 +191,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Santiago de Compostela", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 95671, IsStateCapital = true}
+                        new City {Name = "Santiago de Compostela", PhoneAreaCode = "981", PostalCode = "1570{1-7}",Streets = InitiateStreets("Costa do Vedor","Rúa de Londres","Rúa de Altiboia","Rúa de Moscova","Rúa de Dublin","Rúa de Raxeira"), Population = 95671, IsStateCapital = true}
                     }
                 },
                 new State
@@ -203,7 +203,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Logroño", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 153736, IsStateCapital = true}
+                        new City {Name = "Logroño", PhoneAreaCode = "941", PostalCode = "2600{1-9}",Streets = InitiateStreets("Calle Somosierra","Calle Huesca","Calle Belchite","Calle Galicia","Calle Calvo Sotelo","Calle Ciriaco Garrido"), Population = 153736, IsStateCapital = true}
                     }
                 },
                 new State
@@ -215,7 +215,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Madrid", PhoneAreaCode = "", PostalCode = "",Streets = InitiateStreets("","","","","",""), Population = 3141991, IsStateCapital = true, IsCountryCapital = true}
+                        new City {Name = "Madrid", PhoneAreaCode = "910", PostalCode = "280{10-52}",Streets = InitiateStreets("Calle de Ayala","Calle de Goya","Calle de Jorge Juan","Calle de Lagasca","Calle de Padilla","Calle de Serrano"), Population = 3141991, IsStateCapital = true, IsCountryCapital = true}
                     }
                 },
                 new State
@@ -227,7 +227,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Murcia", PhoneAreaCode = "968", PostalCode = "30100",Streets = InitiateStreets("","",""), Population = 442573, IsStateCapital = true}
+                        new City {Name = "Murcia", PhoneAreaCode = "968", PostalCode = "3000{0-9}",Streets = InitiateStreets("Calle Lepanto","Plaza Preciosa","Calle Portillo San Antonio","Calle Maestro Alonso","Calle Enrique Villar","Calle Greco"), Population = 442573, IsStateCapital = true}
                     }
                 },
                 new State
@@ -239,7 +239,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Pamplona", PhoneAreaCode = "", PostalCode = "3100[0]",Streets = InitiateStreets("","",""), Population = 195853, IsStateCapital = true}
+                        new City {Name = "Pamplona", PhoneAreaCode = "948", PostalCode = "3100[0]",Streets = InitiateStreets("Calle Leyre","Calle de los Teobaldos","Calle San Fermin","Calle de Tafalla","Calle Estella","Calle Paulino Caballero"), Population = 195853, IsStateCapital = true}
                     }
                 },
                 new State
@@ -251,7 +251,7 @@ namespace MockingData.LocationData.CountryData
                     Country = this,
                     Cities = new List<City>
                     {
-                        new City {Name = "Valencia", PhoneAreaCode = "", PostalCode = "4601[0]",Streets = InitiateStreets("","",""), Population = 809267, IsStateCapital = true}
+                        new City {Name = "Valencia", PhoneAreaCode = "960", PostalCode = "460{10-25}",Streets = InitiateStreets("Carrer de Marti","Carrer de Pizarro","Carrer de Jorge Juan","Carrer de Ciscar","Carrer del Bany","Carrer de Lepant"), Population = 809267, IsStateCapital = true}
                     }
                 }
             };
